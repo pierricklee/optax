@@ -21,7 +21,11 @@ import haiku as hk
 import jax
 import jax.numpy as jnp
 import optax
+from jaxlib import ipu_xla_client
 
+cfg = ipu_xla_client.config.IPUConfig()
+cfg.auto_select_ipus = 1
+cfg.configure_ipu_system()
 
 def main(argv):
   del argv
